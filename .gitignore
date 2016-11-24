@@ -1,33 +1,513 @@
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#define SIZE 5
+ 
+// ---------------------------------------------- //
+//       ALGORITMOS ESTRUTURADOS - STRINGS        //
+// ---------------------------------------------- //
+ 
+int dobro(int x)//AULA DIA 22.11.16
+{
+    return 2 * x;
+}
+ 
+int soma(int a, int b)//AULA DIA 22.11.16
+{
+    return a + b;
+}
+ 
+void imprime_par_impar(int x)//AULA DIA 22.11.16
+{
+ 
+    if((x % 2) == 0){
+        printf("\nPAR\n");
+    } else {
+        printf("\nIMPAR\n");
+    }
+}
+ 
+// ---------------------------------------------------------- //
+//       ALGORITMOS ESTRUTURADOS - ESTRUTURA DE REPETIวรO     //
+// ---------------------------------------------------------- //
+ 
+void ex02()// EXERCอCIO ESTRUTURA DE REPETIวรO 2.
+{
+    float n1, n2, media, soma = 0;
+    int contador = 0;
+ 
+    while (contador < 5){
+ 
+        scanf("%f %f\n", &n1, &n2);
+ 
+        soma = soma + n1;
+        soma = soma + n2;
+ 
+        contador++;
+    }
+    media = soma/contador;
+    printf("M้dia geral = %.2f\n", media);
+}
+ 
+void ex03()// EXERCอCIO ESTRUTURA DE REPETIวรO 3.
+{
+    float media, soma = 0, contador = 0;
+    int n = 0;
+ 
+    do{
+ 
+        printf("Informe um n๚mero (-1 para sair): ");
+        scanf("%d", &n);
+ 
+        if (n != -1){
+            soma = soma + n;
+            contador++;
+        }
+    } while (n != -1);
+    media = soma/contador;
+    printf("\n\nM้dia = %.2f\n", media);
+ 
+}
+ 
+void ex04()// EXERCอCIO ESTRUTURA DE REPETIวรO 4.
+{
+    float n1, n2, media;
+    int contador = 1;
+ 
+    do{
+        printf("\n\n\nInforme a primeira nota: ");
+        scanf("%f", &n1);
+ 
+        printf("Informe a segunda nota: ");
+        scanf("%f", &n2);
+ 
+        media = (n1+n2)/2;
+        printf("M้dia = %.2f\n", media);
+ 
+        contador++;
+ 
+    }while (contador <= 5);
+}
+ 
+void exdois()// EXEMPLO EXERCอCIO 2.
+{
+    int n = 0;
+ 
+    printf("\n\n\nN๚mero\t\tQuadrado\tCubo\n");
+ 
+    while (n <= 10){
+        printf("%d\t\t%d\t\t%d\n", n, n*n, n*n*n);
+        n++;
+    }
+}
+ 
+void extres()// EXEMPLO EXERCอCIO 3.
+{
+    int n, i=1, soma=0, prod=1;
+ 
+ 
+    printf("\n\n\nDigite um inteiro: ");
+    scanf("%d", &n);
+ 
+    while (i <= n){
+        soma = soma + i;
+        prod = prod * i;
+        i++;
+    }
+    printf("Soma = %d\n", soma);
+    printf("Prod = %d\n", prod);
+}
+ 
+void exquatroA()// EXERCอCIO 4A.
+{
+    int n, contador = 0, contador2 = 0, contador3 = 0, contador4 = 0, contador5 = 0;
+ 
+    printf("\n\n\nDigite um n๚mero inteiro: ");
+    scanf("%d", &n);
+ 
+    while ((n - 10000) >= 0){
+        n -= 10000;
+        contador++;
+    }
+    printf("%d\n", contador);
+ 
+    while ((n - 1000) >= 0){
+        n -= 1000;
+        contador2++;
+    }
+    printf("%d\n", contador2);
+ 
+    while ((n - 100) >= 0){
+        n -= 100;
+        contador3++;
+    }
+    printf("%d\n", contador3);
+ 
+    while ((n - 10) >= 0){
+        n -= 10;
+        contador4++;
+    }
+    printf("%d\n", contador4);
+ 
+    while ((n - 1) >= 0){
+        n -= 1;
+        contador5++;
+    }
+    printf("%d\n", contador5);
+ 
+}
+ 
+void exquatroB()// EXERCอCIO 4B.
+{
+ 
+    int n, contador = 0, ref = 10000;
+ 
+    printf("\n\n\nInforme um Inteiro: ");
+    scanf("%d", &n);
+ 
+    while (ref >= 1){
+ 
+        while ((n - ref) >= 0){
+            n -= ref;
+            contador++;
+        }
+        printf("%d\n", contador);
+        contador = 0;
+        ref /= 10; // ref <- ref/10;
+    }
+}
+ 
+void exquatroC()// EXERCอCIO 4C.
+{
+ 
+    int n, contador = 0, ref = 10000;
+ 
+    printf("\n\n\nInforme um inteiro: ");
+    scanf("%d", &n);
+ 
+    while (ref >=1) {
+        contador = n / ref;
+        n = n % ref;
+ 
+        printf("%d\n", contador);
+        ref /= 10;
+    }
+}
+ 
+//--------------------------------------------------//
+// AULA DIA 01/11/2016 - EXERCอCIOS FEITOS NA SALA. //
+//--------------------------------------------------//
+ 
+void repeticao1()//EXEMPLO.
+{
+    int i;
+ 
+    for(i = 0; i < 10; i++){
+ 
+        printf("i = %d\n", i);
+    }
+ 
+    return 0;
+}
+ 
+void repeticaoex1()//EXERCอCIO 1.
+{
+    float n1, n2, media;
+    int i;
+ 
+    for(i = 0; i < 5; i++){
+ 
+        printf("Informe a primeira nota: ");
+        scanf("%f", &n1);
+ 
+        printf("Informe a segunda nota: ");
+        scanf("%f", &n2);
+ 
+        media = (n1 + n2)/2;
+ 
+        printf("M้dia = %.2f\n", media);
+    }
+}
+ 
+void repeticaoex2()//EXERCอCIO 2.
+{
+    float n1, n2, media, soma = 0;
+    int i;
+ 
+    for (i = 0; i < 5; i++){
+ 
+        printf("Informe o valor de n1: ");
+        scanf("%f", &n1);
+ 
+        printf("Informe o valor de n2: ");
+        scanf("%f", &n2);
+ 
+        soma = soma + n1;
+        soma = soma + n2;
+    }
+ 
+    media = soma/i;
+    printf("Soma geral = %.2f\n", soma);
+}
+ 
+void repeticaoex3()//EXERCอCIO 3.
+{
+    int i;
+ 
+    printf("\n\n\nN๚mero\t\tQuadrado\tCubo\n");
+ 
+    for(i = 0; i <= 10; i++){
+        printf("%d\t\t%d\t\t%d\n", i, i*i, i*i*i);
+    }
+}
+ 
+// ---------------------------------------------- //
+//       ALGORITMOS ESTRUTURADOS - VETORES        //
+// ---------------------------------------------- //
+ 
+void vetor1()// EXERCอCIO 1.
+{
+    int i;
+    int v[3];
+ 
+    v[0] = 2;
+    v[1] = 4;
+    v[2] = 8;
+ 
+    for(i = 0; i < 3; i++){
+        printf("%d\n", v[i]);
+    }
+}
+ 
+void vetor2()// EXERCอCIO 2.
+{
+    int i;
+    int n[10], dobro[10], triple[10];
+ 
+    for(i = 0; i < 10; i++){
+        n[i] = i;
+        dobro[i] = 2 * i;
+        triple[i] = 3 * i;
+    }
+ 
+    printf("N๚mero\tDobro\tTriplo\n");
+ 
+    for(i = 0; i < 10; i++){
+        printf("%d\t%d\t%d\n", n[i], dobro[i], triple[i]);
+    }
+}
+ 
+void vetor3()// EXERCอCIO 3.
+{
+    char v[5];
+ 
+    v[0] = 'c';
+    v[1] = 'a';
+    v[2] = 's';
+    v[3] = 'a';
+    v[4] = 0; // FIM DA STRING.
+ 
+    printf("%s\n", v);
+}
+ 
+void vetor4()// EXERCอCIO 4.
+{
+    char v1[8] = {'f', 'a', 'c', 't', 'h', 'u', 's', 0};
+    char v2[8] = "facthus";
+ 
+    printf("%d\n", v2[7]);
+ 
+    printf("%s\n", v1);
+    printf("%s\n", v2);
+}
+ 
+void vetor5()// EXERCอCIO 5.
+{
+    int i;
+    int v[SIZE];
+ 
+    for(i = 0; i < SIZE; i++){
+        v[i] = 100+i;
+    }
+    for(i = 0; i < SIZE; i++){
+    printf("%d\n", v[i]);
+    }
+}
+ 
+void vetor6()// EXERCอCIO 6.
+{
+    char v[10] = {'A','N','A',' ','M','A','R','I','A', 0};
+ 
+    printf("%s\n", v);
+}
+ 
+void vetor1Aex()// EXERCอCIO 1A.
+{
+    int i, maior;
+    int v[SIZE] = {16, 4, 32, 2, 8};
+ 
+    maior = v[0];
+ 
+    for(i = 1; i < SIZE; i++){
+        if(v[i] > maior){
+            maior = v[i];
+        }
+    }
+    printf("Maior = %d\n", maior);
+}
+ 
+void vetor2Bex()// EXERCอCIO 1B.
+{
+    int i, maior, posicao;
+    int v[SIZE] = {16, 4, 32, 2, 8};
+ 
+    maior = v[0];
+    posicao = 0;
+ 
+    for(i = 1; i < SIZE; i++){
+        if(v[i] > maior){
+            maior = v[i];
+            posicao = i;
+        }
+    }
+    printf("Maior elemento = %d\nposicao = %d\n", maior, posicao);
+}
+ 
+void vetor3Cex()// EXERCอCIO 1C.
+{
+    int i, menor, posicao;
+    int v[SIZE] = {16, 4, 32, 2, 8};
+ 
+    menor = v[0];
+    posicao = 0;
+ 
+    for(i = 1; i < SIZE; i++){
+        if(v[i] < menor){
+            menor = v[i];
+            posicao = i;
+        }
+    }
+    printf("Menor elemento = %d\n", menor);
+}
+ 
+void vetor4Dex()// EXERCอCIO 1D.
+{
+    int i, menor, posicao;
+    int v[SIZE] = {16, 4, 32, 2, 8};
+ 
+    menor = v[0];
+    posicao = 0;
+ 
+    for(i = 1; i < SIZE; i++){
+        if(v[i] < menor){
+            menor = v[i];
+            posicao = i;
+        }
+    }
+    printf("Menor elemento = %d\nposicao = %d\n", menor, posicao);
+}
+ 
+void vetor5Eex()// EXERCอCIO 1E.
+{
+    int i, soma = 0;
+    int v[SIZE] = {16, 4, 32, 2, 8};
+ 
+    for(i = 0; i < SIZE; i++){
+        soma = soma + v[i];
+    }
+    printf("SOMA = %d\n", soma);
+}
+ 
+void vetorfibonacci()// EXERCอCIO FIBONACCI.
+{
+    int fib[10], i;
+    fib[0] = 0;
+    fib[1] = 1;
+ 
+    //GERA A SษRIE DE FIBONACCI
+    for(i = 2; i < 10; i++){
+        //ATUAL = VALOR + ANTERIOR
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+    //IMPRIME A SษRIE
+   for(i = 0; i < 10; i++){
+        printf("%d ", fib[i]);
+   }
+   printf("\n");
+}
+ 
+void vetorfacthus()// EXERCอCIO VETOR FACTHUS.
+{
+    char v1[10] = "FACULDADE";
+    char v2[3] = "DE";
+    char v3[9] = "TALENTOS";
+    char v4[8] = "HUMANOS";
+ 
+    printf("%s %s %s %s\n", v1, v2, v3, v4);
+}
+ 
+// ------------------------------------------------ //
+//       ALGORITMOS ESTRUTURADOS - PRINCIPAL        //
+// ------------------------------------------------ //
+ 
+int main()// PRINCIPAL
+{
+    printf("    E S T R U T U R A   DE   R E P E T I C A O \n");
+    printf("\n");
+    printf("                        E                           \n");
+    printf("\n");
+    printf("                  V E T O R E S                     \n\n\n\n");
+ 
+    setlocale(LC_ALL,"portuguese");
+ 
+    //ex02();
+    //ex03();
+    //ex04();
+    //exdois();
+    //extres();
+    //exquatroA();
+    //exquatroB();
+    //exquatroC();
+ 
+    //repeticao1();
+    //repeticaoex1();
+    //repeticaoex2();
+    //repeticaoex3();
+ 
+    //vetor1();
+    //vetor2();
+    //vetor3();
+    //vetor4();
+    //vetor5();
+    //vetor6();
+ 
+    //vetor1Aex();
+    //vetor2Bex();
+    //vetor3Cex();
+    //vetor4Dex();
+    //vetor5Eex();
+    //vetorfibonacci();
+    //vetorfacthus();
+ 
+ 
+    //---------------------------------//
+    //         S T R I N G S           //
+    //---------------------------------//
+ 
+    /*int n1, n2;
+ 
+    printf("Informe dois numeros: ");
+    scanf("%d %d", &n1, &n2);
+ 
+    printf("Soma: %d\n", soma(n1, n2));*/
+ 
+ 
+    /*int n1;
+ 
+    printf("Informe um numero: ");
+    scanf("%d", &n1);
+ 
+    imprime_par_impar(n1);*/
+ 
+    return 0;
+}
